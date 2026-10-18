@@ -382,7 +382,7 @@ class DetailPage extends StatelessWidget {
         title: Text(item.nama),
       ),
       body: Center(
-        child: Padding(
+        child: SingleChildScrollView(
           padding: const EdgeInsets.all(24),
           child: Column(
             mainAxisSize: MainAxisSize.min,
@@ -672,62 +672,6 @@ class PengaturanTab extends StatelessWidget {
           ),
         ),
       ],
-    );
-  }
-}
-
-class DetailPage extends StatelessWidget {
-  final Item item;
-
-  const DetailPage({
-    super.key,
-    required this.item,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    final tema = Theme.of(context);
-
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(item.nama),
-      ),
-      body: Center(
-        child: SingleChildScrollView(
-          padding: const EdgeInsets.all(24),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              CircleAvatar(
-                radius: 60,
-                backgroundColor: item.warna,
-                child: Icon(
-                  item.ikon,
-                  size: 60,
-                  color: Colors.white,
-                ),
-              ),
-              const SizedBox(height: 20),
-              Text(
-                item.nama,
-                style: tema.textTheme.headlineMedium,
-              ),
-              const SizedBox(height: 12),
-              Text(
-                item.deskripsi,
-                textAlign: TextAlign.center,
-                style: tema.textTheme.bodyLarge,
-              ),
-              const SizedBox(height: 24),
-              FilledButton.icon(
-                onPressed: () => Navigator.pop(context),
-                icon: const Icon(Icons.arrow_back),
-                label: const Text('Kembali'),
-              ),
-            ],
-          ),
-        ),
-      ),
     );
   }
 }
